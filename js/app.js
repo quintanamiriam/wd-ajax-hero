@@ -1,12 +1,18 @@
-(function() {
+$(document).ready(function(){
   'use strict';
+  $.get("https://ombd-api.now.sh/"), function(data) {
+    movies.push(movie);
+    renderMovies();
+  }
 
-  const movies = [];
+  var movies = [];
 
-  const renderMovies = function() {
+  var movie = {};
+
+  var renderMovies = function() {
     $('#listings').empty();
 
-    for (const movie of movies) {
+    for (var movie of movies) {
       const $col = $('<div>').addClass('col s6');
       const $card = $('<div>').addClass('card hoverable');
       const $content = $('<div>').addClass('card-content center');
@@ -59,15 +65,8 @@
 $(".btn-large waves-effect waves-light").click(function(x){
   x.preventDefault()
   $("#search").empty()
-})
-.fail(function() {
-  alert(“The user input is blank”)
-
-}
-$(document).ready(funtion){
-  $.get("https://ombd-api.now.sh/"), function(data) {
-    renderMovies()
-  }
-  
-}
-})();
+});
+ // .fail(function() {
+ //  alert(“The user input is blank”);
+ //  }
+});
