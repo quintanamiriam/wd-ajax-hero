@@ -56,5 +56,18 @@
     }
   };
 
-  // ADD YOUR CODE HERE
+$(".btn-large waves-effect waves-light").click(function(x){
+  x.preventDefault()
+  $("#search").empty()
+})
+.fail(function() {
+  alert(“The user input is blank”)
+
+}
+$(document).ready(funtion){
+  $.get("https://ombd-api.now.sh/"), function(data) {
+    renderMovies()
+  }
+  
+}
 })();
